@@ -1,4 +1,6 @@
 package br.upe.ecoenergy.repository;
 
-public interface ConsumoMensalRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ConsumoMensalRepository extends JpaRepository<ConsumoMensalRepository, Long> {
 }
