@@ -35,4 +35,9 @@ public class ConsumoMensalService {
 
         return repository.save(consumoMensal);
     }
+
+    public void deletarConsumoMensal(Long id) {
+        ConsumoMensal consumoMensal = buscarConsumoMensalPorId(id);
+        repository.delete(consumoMensal);
+    }
 }
