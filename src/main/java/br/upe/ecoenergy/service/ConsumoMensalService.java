@@ -21,4 +21,8 @@ public class ConsumoMensalService {
 
         return consumoMensal.get();
     }
+
+    public ConsumoMensal registrarConsumoMensal(ConsumoMensal consumoMensal) {
+        return repository.save(consumoMensal);
+    }
 }
