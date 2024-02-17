@@ -1,4 +1,4 @@
 package br.upe.ecoenergy.repository;
 
-public class ConsumoUnicoRepository {
+public interface ConsumoUnicoRepository {
 }
