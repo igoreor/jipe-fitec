@@ -33,4 +33,9 @@ public class UsuarioService {
 
         return repository.save(usuarioAtualizado);
     }
+
+    public void deletarUsuario(Long id) {
+        Usuario usuario = buscarUsuarioPorId(id);
+        repository.delete(usuario);
+    }
 }
