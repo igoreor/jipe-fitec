@@ -21,4 +21,8 @@ public class UsuarioService {
 
         return usuario.get();
     }
+
+    public Usuario registrarUsuario(Usuario usuario) {
+        return repository.save(usuario);
+    }
 }
