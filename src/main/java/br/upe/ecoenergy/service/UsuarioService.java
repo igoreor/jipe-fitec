@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class UsuarioService {
-    public final UsuarioRepository repository;
+    private final UsuarioRepository repository;
 
     public Usuario buscarUsuarioPorId(Long id) {
         Optional<Usuario> usuario = repository.findById(id);
