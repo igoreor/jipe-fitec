@@ -25,4 +25,12 @@ public class UsuarioService {
     public Usuario registrarUsuario(Usuario usuario) {
         return repository.save(usuario);
     }
+
+    public Usuario atualizarUsuario(Usuario usuarioAtualizado) {
+        Optional<Usuario> usuarioAntigo = repository.findById(usuarioAtualizado.getId());
+        usuarioAntigo.get().setNome(usuarioAtualizado.getNome());
+        usuarioAntigo.get().setTarifa(usuarioAtualizado.getTarifa());
+
+        return repository.save(usuarioAtualizado);
+    }
 }
