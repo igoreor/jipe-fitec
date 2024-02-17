@@ -25,4 +25,14 @@ public class ConsumoMensalService {
     public ConsumoMensal registrarConsumoMensal(ConsumoMensal consumoMensal) {
         return repository.save(consumoMensal);
     }
+
+    public ConsumoMensal atualizarConsumoMensal(ConsumoMensal consumoMensalAtualizado) {
+        ConsumoMensal consumoMensal = buscarConsumoMensalPorId(consumoMensalAtualizado.getId());
+
+        consumoMensal.setKwhTotal(consumoMensalAtualizado.getKwhTotal());
+        consumoMensal.setCustoTotal(consumoMensalAtualizado.getCustoTotal());
+        consumoMensal.setUsuario(consumoMensalAtualizado.getUsuario());
+
+        return repository.save(consumoMensal);
+    }
 }
