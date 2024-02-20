@@ -39,4 +39,10 @@ public class ConsumoMensalController {
         ConsumoMensal consumoMensal = consumoMensalService.atualizarConsumoMensal(consumoMensalAtualizado);
         return ResponseEntity.ok(consumoMensal);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarConsumoMensal(@PathVariable Long id) {
+        consumoMensalService.deletarConsumoMensal(id);
+        return ResponseEntity.noContent().build();
+    }
 }
