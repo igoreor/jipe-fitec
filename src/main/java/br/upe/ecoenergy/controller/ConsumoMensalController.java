@@ -20,4 +20,10 @@ public class ConsumoMensalController {
         List<ConsumoMensal> consumosMensais = consumoMensalService.consumosMensais();
         return ResponseEntity.ok(consumosMensais);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ConsumoMensal> buscarConsumoMensalPorId(@PathVariable Long id) {
+        ConsumoMensal consumoMensal = consumoMensalService.buscarConsumoMensalPorId(id);
+        return ResponseEntity.ok(consumoMensal);
+    }
 }
