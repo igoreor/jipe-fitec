@@ -3,6 +3,7 @@ package br.upe.ecoenergy.controller;
 import br.upe.ecoenergy.domain.ConsumoMensal;
 import br.upe.ecoenergy.service.ConsumoMensalService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +26,11 @@ public class ConsumoMensalController {
     public ResponseEntity<ConsumoMensal> buscarConsumoMensalPorId(@PathVariable Long id) {
         ConsumoMensal consumoMensal = consumoMensalService.buscarConsumoMensalPorId(id);
         return ResponseEntity.ok(consumoMensal);
+    }
+
+    @PostMapping
+    public ResponseEntity<ConsumoMensal> registrarConsumoMensal(@RequestBody ConsumoMensal consumoMensal) {
+        ConsumoMensal novoConsumoMensal = consumoMensalService.registrarConsumoMensal(consumoMensal);
+        return ResponseEntity.status(HttpStatus.CREATED).body(novoConsumoMensal);
     }
 }
