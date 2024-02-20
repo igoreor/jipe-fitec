@@ -33,4 +33,10 @@ public class ConsumoMensalController {
         ConsumoMensal novoConsumoMensal = consumoMensalService.registrarConsumoMensal(consumoMensal);
         return ResponseEntity.status(HttpStatus.CREATED).body(novoConsumoMensal);
     }
+
+    @PutMapping
+    public ResponseEntity<ConsumoMensal> atualizarConsumoMensal(@RequestBody ConsumoMensal consumoMensalAtualizado) {
+        ConsumoMensal consumoMensal = consumoMensalService.atualizarConsumoMensal(consumoMensalAtualizado);
+        return ResponseEntity.ok(consumoMensal);
+    }
 }
