@@ -34,11 +34,11 @@ public class ConsumoMensalService {
     public ConsumoMensal atualizarConsumoMensal(ConsumoMensal consumoMensalAtualizado) {
         ConsumoMensal consumoMensal = buscarConsumoMensalPorId(consumoMensalAtualizado.getId());
 
-        consumoMensal.setKwhTotal(consumoMensalAtualizado.getKwhTotal());
-        consumoMensal.setCustoTotal(consumoMensalAtualizado.getCustoTotal());
+        consumoMensal.setNome(consumoMensalAtualizado.getNome());
+        consumoMensal.setKilowattsHoraTotal(consumoMensalAtualizado.getKilowattsHoraTotal());
         consumoMensal.setUsuario(consumoMensalAtualizado.getUsuario());
 
-        return repository.save(consumoMensal);
+        return registrarConsumoMensal(consumoMensal);
     }
 
     public void deletarConsumoMensal(Long id) {
