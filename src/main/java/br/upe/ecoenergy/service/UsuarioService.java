@@ -28,10 +28,11 @@ public class UsuarioService {
 
     public Usuario atualizarUsuario(Usuario usuarioAtualizado) {
         Usuario usuario = buscarUsuarioPorId(usuarioAtualizado.getId());
+
         usuario.setNome(usuarioAtualizado.getNome());
         usuario.setTarifa(usuarioAtualizado.getTarifa());
 
-        return repository.save(usuario);
+        return registrarUsuario(usuario);
     }
 
     public void deletarUsuario(Long id) {
