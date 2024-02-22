@@ -1,4 +1,4 @@
 package br.upe.ecoenergy.repository;
 
-public class EletrodomesticoRepository {
+public interface EletrodomesticoRepository {
 }

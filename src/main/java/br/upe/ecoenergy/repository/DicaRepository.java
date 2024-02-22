@@ -1,4 +1,7 @@
 package br.upe.ecoenergy.repository;
 
-public class DicaRepository {
+import br.upe.ecoenergy.domain.Dica;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DicaRepository extends JpaRepository<Dica, Long> {
 }
