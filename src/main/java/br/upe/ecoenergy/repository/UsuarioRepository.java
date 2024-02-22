@@ -1,4 +1,7 @@
 package br.upe.ecoenergy.repository;
 
-public class UsuarioRepository {
+import br.upe.ecoenergy.domain.Usuario;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 }
