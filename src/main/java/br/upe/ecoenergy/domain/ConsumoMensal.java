@@ -8,7 +8,7 @@ import lombok.Data;
 @Table(name = "consumo_mensal")
 public class ConsumoMensal {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String nome;

@@ -8,7 +8,7 @@ import lombok.Data;
 @Table(name = "dica")
 public class Dica {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String titulo;

@@ -9,7 +9,7 @@ import lombok.Data;
 public class ConsumoUnico {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private Double horasUso;
