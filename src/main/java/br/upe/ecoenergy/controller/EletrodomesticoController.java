@@ -1,12 +1,17 @@
 package br.upe.ecoenergy.controller;
+
 import br.upe.ecoenergy.domain.Eletrodomestico;
 import br.upe.ecoenergy.service.EletrodomesticoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/eletrodomestico")
+@RequiredArgsConstructor
 public class EletrodomesticoController {
     private EletrodomesticoService eletrodomesticoService;
 
@@ -18,7 +23,7 @@ public class EletrodomesticoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Eletrodomestico> buscarEletrodomesticoPorId(@PathVariable Long id) {
-        Eletrodomestico  eletrodomestico= eletrodomesticoService.buscarEletrodomesticoPorId(id);
+        Eletrodomestico eletrodomestico = eletrodomesticoService.buscarEletrodomesticoPorId(id);
         return ResponseEntity.ok(eletrodomestico);
     }
 
