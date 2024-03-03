@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ConsumoUnicoController {
 
-    private ConsumoUnicoService consumoUnicoService;
+    private final ConsumoUnicoService consumoUnicoService;
 
     @GetMapping
     public ResponseEntity<List<ConsumoUnico>> listarConsumosUnicos() {

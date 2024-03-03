@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/eletrodomestico")
 @RequiredArgsConstructor
 public class EletrodomesticoController {
-    private EletrodomesticoService eletrodomesticoService;
+    private final EletrodomesticoService eletrodomesticoService;
 
     @GetMapping
     public ResponseEntity<List<Eletrodomestico>> listarEletrodomesticos() {
