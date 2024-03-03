@@ -4,12 +4,16 @@ import br.upe.ecoenergy.domain.ConsumoUnico;
 import br.upe.ecoenergy.domain.Eletrodomestico;
 import br.upe.ecoenergy.service.ConsumoUnicoService;
 import br.upe.ecoenergy.service.EletrodomesticoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/consumos-unicos")
+@RequiredArgsConstructor
 public class ConsumoUnicoController {
 
     private ConsumoUnicoService consumoUnicoService;

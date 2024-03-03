@@ -7,13 +7,11 @@ import lombok.Data;
 @Entity
 @Table(name = "consumo_unico")
 public class ConsumoUnico {
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private Double horasUso;
-
 
     @ManyToOne
     @JoinColumn(name = "eletrodomestico_id", nullable = false)
