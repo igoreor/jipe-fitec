@@ -21,6 +21,12 @@ public class EletrodomesticoController {
         return ResponseEntity.ok(eletrodomesticos);
     }
 
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<List<Eletrodomestico>> listarEletrodomesticosPorUsuarioId(@PathVariable Long id) {
+        List<Eletrodomestico> eletrodomesticos = eletrodomesticoService.eletrodomesticosPorUsuarioId(id);
+        return ResponseEntity.ok(eletrodomesticos);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Eletrodomestico> buscarEletrodomesticoPorId(@PathVariable Long id) {
         Eletrodomestico eletrodomestico = eletrodomesticoService.buscarEletrodomesticoPorId(id);
