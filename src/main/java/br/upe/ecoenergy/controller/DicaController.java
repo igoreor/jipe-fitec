@@ -28,6 +28,12 @@ public class DicaController {
         return ResponseEntity.ok(dica);
     }
 
+    @GetMapping("/aleatoria")
+    public ResponseEntity<Dica> buscarDicaAleatoria() {
+        Dica dica = dicaService.buscarDicaAleatoria();
+        return ResponseEntity.ok(dica);
+    }
+
     @PostMapping
     public ResponseEntity<Dica> adicionarDica(@RequestBody Dica dica) {
         Dica novaDica = dicaService.adicionarDica(dica);
