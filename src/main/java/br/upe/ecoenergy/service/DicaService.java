@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +26,11 @@ public class DicaService {
         }
 
         return dica.get();
+    }
+
+    public Dica buscarDicaAleatoria() {
+        Long aleatoria = new Random().nextLong(66) + 1;
+        return buscarDicaPorId(aleatoria);
     }
 
     public Dica adicionarDica(Dica dica) {
