@@ -19,7 +19,7 @@ public class EletrodomesticoService {
         return repository.findAll();
     }
 
-    public List<Eletrodomestico> eletrodomesticosPorUsuarioId(Long id) {
+    public List<Eletrodomestico> eletrodomesticosPorUsuarioId(String id) {
         return repository.findAllByUsuario_Id(id);
     }
 

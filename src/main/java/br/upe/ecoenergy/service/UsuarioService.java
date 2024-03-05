@@ -12,7 +12,7 @@ import java.util.Optional;
 public class UsuarioService {
     private final UsuarioRepository repository;
 
-    public Usuario buscarUsuarioPorId(Long id) {
+    public Usuario buscarUsuarioPorId(String id) {
         Optional<Usuario> usuario = repository.findById(id);
 
         if (usuario.isEmpty()) {
@@ -35,7 +35,7 @@ public class UsuarioService {
         return registrarUsuario(usuario);
     }
 
-    public void deletarUsuario(Long id) {
+    public void deletarUsuario(String id) {
         Usuario usuario = buscarUsuarioPorId(id);
         repository.delete(usuario);
     }
