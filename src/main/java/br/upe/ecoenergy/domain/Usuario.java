@@ -8,8 +8,7 @@ import lombok.Data;
 @Table(name = "usuario")
 public class Usuario {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    private String id;
 
     @Column(nullable = false)
     private String nome;
