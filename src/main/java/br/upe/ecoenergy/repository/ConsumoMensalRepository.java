@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ConsumoMensalRepository extends JpaRepository<ConsumoMensal, Long> {
     List<ConsumoMensal> findAllByUsuario_Id(String id);
+    List<ConsumoMensal> findAllByUsuario_IdAndNome(String id, String nome);
 }
