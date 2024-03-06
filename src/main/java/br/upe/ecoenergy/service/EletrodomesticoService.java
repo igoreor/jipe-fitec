@@ -37,9 +37,9 @@ public class EletrodomesticoService {
         return repository.save(eletrodomestico);
     }
 
-    public Eletrodomestico atualizarEletrodomestico(Eletrodomestico eletrodomesticoAtualizado) {
+    public Eletrodomestico atualizarEletrodomestico(Long id, Eletrodomestico eletrodomesticoAtualizado) {
 
-        Eletrodomestico eletrodomestico = buscarEletrodomesticoPorId(eletrodomesticoAtualizado.getId());
+        Eletrodomestico eletrodomestico = buscarEletrodomesticoPorId(id);
         if (eletrodomesticoAtualizado.getId() == null){
             throw new RuntimeException("Forneça o id do eletrodomestico que deseja atualizar");
         }
