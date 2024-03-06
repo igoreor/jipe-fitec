@@ -24,8 +24,14 @@ public class ConsumoMensalController {
 
     @GetMapping("/usuario/{id}")
     public ResponseEntity<List<ConsumoMensal>> listarConsumosMensaisPorUsuarioId(@PathVariable String id) {
-        List<ConsumoMensal> consumoMensais = consumoMensalService.consumoMensalsPorUsuarioId(id);
+        List<ConsumoMensal> consumoMensais = consumoMensalService.consumoMensaisPorUsuarioId(id);
         return ResponseEntity.ok(consumoMensais);
+    }
+
+    @GetMapping("/usuario/{id}/{mes}")
+    public ResponseEntity<List<ConsumoMensal>> listarConsumosMensaisPorUsuarioIdEMes(@PathVariable String id, @PathVariable String mes) {
+        List<ConsumoMensal> consumosMensais = consumoMensalService.consumoMensaisPorUsuarioIdEMes(id, mes);
+        return ResponseEntity.ok(consumosMensais);
     }
 
     @GetMapping("/{id}")
