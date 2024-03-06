@@ -17,6 +17,10 @@ public class ConsumoMensalService {
         return repository.findAll();
     }
 
+    public List<ConsumoMensal> consumoMensalsPorUsuarioId(String id) {
+        return repository.findAllByUsuario_Id(id);
+    }
+
     public ConsumoMensal buscarConsumoMensalPorId(Long id) {
         Optional<ConsumoMensal> consumoMensal = repository.findById(id);
 
