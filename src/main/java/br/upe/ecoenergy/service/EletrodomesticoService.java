@@ -23,6 +23,10 @@ public class EletrodomesticoService {
         return repository.findAllByUsuario_Id(id);
     }
 
+    public List<Eletrodomestico> eletrodomesticosPorUsuarioIdENome(String id, String nome) {
+        return repository.findAllByUsuario_IdAndNome(id, nome);
+    }
+
     public Eletrodomestico buscarEletrodomesticoPorId(Long id) {
         Optional<Eletrodomestico> eletrodomestico = repository.findById(id);
 

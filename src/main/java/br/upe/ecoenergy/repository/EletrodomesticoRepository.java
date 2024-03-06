@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface EletrodomesticoRepository extends JpaRepository<Eletrodomestico, Long> {
     List<Eletrodomestico> findAllByUsuario_Id(String id);
+    List<Eletrodomestico> findAllByUsuario_IdAndNome(String id, String nome);
 }
