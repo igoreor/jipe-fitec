@@ -26,8 +26,8 @@ public class UsuarioService {
         return repository.save(usuario);
     }
 
-    public Usuario atualizarUsuario(Usuario usuarioAtualizado) {
-        Usuario usuario = buscarUsuarioPorId(usuarioAtualizado.getId());
+    public Usuario atualizarUsuario(String id, Usuario usuarioAtualizado) {
+        Usuario usuario = buscarUsuarioPorId(id);
 
         usuario.setNome(usuarioAtualizado.getNome());
         usuario.setTarifa(usuarioAtualizado.getTarifa());
