@@ -39,9 +39,9 @@ public class EletrodomesticoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(novoEletrodomestico);
     }
 
-    @PutMapping
-    public ResponseEntity<Eletrodomestico> atualizarEletrodomestico(@RequestBody Eletrodomestico eletrodomesticoAtualizado) {
-        Eletrodomestico eletrodomestico = eletrodomesticoService.atualizarEletrodomestico(eletrodomesticoAtualizado);
+    @PutMapping("/{id}")
+    public ResponseEntity<Eletrodomestico> atualizarEletrodomestico(@PathVariable Long id, @RequestBody Eletrodomestico eletrodomesticoAtualizado) {
+        Eletrodomestico eletrodomestico = eletrodomesticoService.atualizarEletrodomestico(id, eletrodomesticoAtualizado);
         return ResponseEntity.ok(eletrodomestico);
     }
 
