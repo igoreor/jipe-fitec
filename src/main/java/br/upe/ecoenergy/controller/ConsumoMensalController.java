@@ -22,6 +22,12 @@ public class ConsumoMensalController {
         return ResponseEntity.ok(consumosMensais);
     }
 
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<List<ConsumoMensal>> listarConsumosMensaisPorUsuarioId(@PathVariable String id) {
+        List<ConsumoMensal> consumoMensais = consumoMensalService.consumoMensalsPorUsuarioId(id);
+        return ResponseEntity.ok(consumoMensais);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<ConsumoMensal> buscarConsumoMensalPorId(@PathVariable Long id) {
         ConsumoMensal consumoMensal = consumoMensalService.buscarConsumoMensalPorId(id);
