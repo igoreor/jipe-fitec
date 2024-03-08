@@ -1,12 +1,9 @@
 package br.upe.ecoenergy.service;
 
 import br.upe.ecoenergy.domain.ConsumoUnico;
-import br.upe.ecoenergy.domain.Eletrodomestico;
 import br.upe.ecoenergy.repository.ConsumoUnicoRepository;
-import br.upe.ecoenergy.repository.EletrodomesticoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +13,7 @@ import java.util.Optional;
 public class ConsumoUnicoService {
 
     private final ConsumoUnicoRepository repository;
-    private final EletrodomesticoRepository eletrodomesticoRepository;
+    private final ConsumoMensalService consumoMensalService;
 
     public List<ConsumoUnico> consumos() {
         return repository.findAll();
@@ -24,6 +21,24 @@ public class ConsumoUnicoService {
 
     public List<ConsumoUnico> consumosUnicosPorConsumoMensalId(Long id) {
         return repository.findAllByConsumoMensal_Id(id);
+    }
+
+    public Double calcularConsumoMensal(Long id) {
+        List<ConsumoUnico> consumoUnicos = consumosUnicosPorConsumoMensalId(id);
+
+        if (consumoUnicos.isEmpty()) {
+            return 0.0;
+        }
+
+        Double wattsHoraTotal = 0.0;
+        for (ConsumoUnico consumoUnico : consumoUnicos) {
+            Double potencia = consumoUnico.getEletrodomestico().getPotencia();
+            Double horasUso = consumoUnico.getHorasUso();
+            wattsHoraTotal += potencia * horasUso;
+        }
+
+        Double kilowattsHoraTotal = wattsHoraTotal / 1000;
+        return kilowattsHoraTotal;
     }
 
     public ConsumoUnico buscarConsumoUnicoPorId(Long id) {
@@ -43,7 +58,7 @@ public class ConsumoUnicoService {
     public ConsumoUnico atualizarConsumoUnico(ConsumoUnico consumoUnicoAtualizado) {
 
         ConsumoUnico consumoUnico = buscarConsumoUnicoPorId(consumoUnicoAtualizado.getId());
-        if (consumoUnico.getId() == null){
+        if (consumoUnico.getId() == null) {
             throw new RuntimeException("Forneça o id do consumo unico que deseja atualizar");
         }
 
