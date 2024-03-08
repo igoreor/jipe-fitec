@@ -24,9 +24,15 @@ public class ConsumoUnicoController {
         return ResponseEntity.ok(listaConsumoUnico);
     }
 
+    @GetMapping("/consumo-mensal/{id}")
+    public ResponseEntity<List<ConsumoUnico>> listarConsumosUnicosPorConsumoMensalId(@PathVariable Long id) {
+        List<ConsumoUnico> consumoUnicos = consumoUnicoService.consumosUnicosPorConsumoMensalId(id);
+        return ResponseEntity.ok(consumoUnicos);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<ConsumoUnico> buscarConsumoUnicoPorId(@PathVariable Long id) {
-        ConsumoUnico  consumoUnico = consumoUnicoService.buscarConsumoUnicoPorId(id);
+        ConsumoUnico consumoUnico = consumoUnicoService.buscarConsumoUnicoPorId(id);
         return ResponseEntity.ok(consumoUnico);
     }
 

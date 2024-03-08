@@ -22,6 +22,10 @@ public class ConsumoUnicoService {
         return repository.findAll();
     }
 
+    public List<ConsumoUnico> consumosUnicosPorConsumoMensalId(Long id) {
+        return repository.findAllByConsumoMensal_Id(id);
+    }
+
     public ConsumoUnico buscarConsumoUnicoPorId(Long id) {
         Optional<ConsumoUnico> consumoUnico = repository.findById(id);
 
