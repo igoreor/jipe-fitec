@@ -1,9 +1,9 @@
 package br.upe.ecoenergy.controller;
 
+import br.upe.ecoenergy.domain.ConsumoMensal;
 import br.upe.ecoenergy.domain.ConsumoUnico;
-import br.upe.ecoenergy.domain.Eletrodomestico;
+import br.upe.ecoenergy.service.ConsumoMensalService;
 import br.upe.ecoenergy.service.ConsumoUnicoService;
-import br.upe.ecoenergy.service.EletrodomesticoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +17,7 @@ import java.util.List;
 public class ConsumoUnicoController {
 
     private final ConsumoUnicoService consumoUnicoService;
+    private final ConsumoMensalService consumoMensalService;
 
     @GetMapping
     public ResponseEntity<List<ConsumoUnico>> listarConsumosUnicos() {
@@ -28,6 +29,17 @@ public class ConsumoUnicoController {
     public ResponseEntity<List<ConsumoUnico>> listarConsumosUnicosPorConsumoMensalId(@PathVariable Long id) {
         List<ConsumoUnico> consumoUnicos = consumoUnicoService.consumosUnicosPorConsumoMensalId(id);
         return ResponseEntity.ok(consumoUnicos);
+    }
+
+    @PostMapping("/calcular-consumo-mensal/{id}")
+    public ResponseEntity<ConsumoMensal> calcularConsumoMensal(@PathVariable Long id) {
+        Double kilowattsHoraTotal = consumoUnicoService.calcularConsumoMensal(id);
+        ConsumoMensal consumoMensal = consumoMensalService.buscarConsumoMensalPorId(id);
+
+        consumoMensal.setKilowattsHoraTotal(kilowattsHoraTotal);
+        consumoMensalService.atualizarConsumoMensal(consumoMensal);
+
+        return ResponseEntity.ok(consumoMensal);
     }
 
     @GetMapping("/{id}")
